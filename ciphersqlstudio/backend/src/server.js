@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import { connectDB } from "./config/database.js";
 import { authRouter } from "./routes/authRoutes.js";
 import { assignmentRouter } from "./routes/assignmentRoutes.js";
+import { hintsRouter } from "./routes/hintRoutes.js";
+import { queryRouter } from "./routes/queryRoutes.js";
 
 dotenv.config();
 
@@ -19,6 +21,8 @@ connectDB();
 // Routes
 app.use("/api/auth", authRouter);
 app.use("/api/assignment", assignmentRouter);
+app.use("/api/hints", hintsRouter);
+app.use("/api/query", queryRouter);
 
 app.get("/api", (req, res) => {
   res.status(200).json({ success: true, message: "API is running" });
