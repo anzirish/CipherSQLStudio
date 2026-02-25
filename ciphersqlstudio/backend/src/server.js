@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { connectDB } from "./config/database.js";
 import { authRouter } from "./routes/authRoutes.js";
+import { assignmentRouter } from "./routes/assignmentRoutes.js";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ connectDB();
 
 // Routes
 app.use("/api/auth", authRouter);
+app.use("/api/assignment", assignmentRouter);
 
 app.get("/api", (req, res) => {
   res.status(200).json({ success: true, message: "API is running" });
