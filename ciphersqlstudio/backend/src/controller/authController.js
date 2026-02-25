@@ -10,7 +10,7 @@ export const register = async (req, res) => {
     // check if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).json({ error: "Email already registed" });
+      return res.status(400).json({ error: "Email already registered" });
     }
 
     // hash password to secure
@@ -50,12 +50,12 @@ export const login = async (req, res) => {
     }
 
     // generate token
-    const token = generateToken({ id: user._id });
+    const token = generateToken({ id: existingUser._id });
 
     return res.status(201).json({
       success: true,
       token,
-      user: { id: user._id, name: user.name, email: user.email },
+      user: { id: existingUser._id, name: existingUser.name, email: existingUser.email },
     });
   } catch {
     res.status(500).json({ error: "Login failed" });

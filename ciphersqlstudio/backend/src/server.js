@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { connectDB } from "./config/database.js";
+import { initializePool } from "./config/postgres.js";
 import { authRouter } from "./routes/authRoutes.js";
 import { assignmentRouter } from "./routes/assignmentRoutes.js";
 import { hintsRouter } from "./routes/hintRoutes.js";
@@ -17,17 +18,15 @@ app.use(cors({ origin: process.env.FRONTEND_URL || "http://localhost:5173" }));
 app.use(express.json());
 
 const startServer = async () => {
-  connectDB();
-  feedDatabase();
+  await connectDB();
+  initializePool(); // Initialize PostgreSQL pool after dotenv loads
+  await feedDatabase();
   const PORT = process.env.PORT || 5000;
 
   app.listen(PORT, () => {
     console.log("Server is running locally");
   });
 };
-
-// connect mongodb database
-connectDB();
 
 // Routes
 app.use("/api/auth", authRouter);

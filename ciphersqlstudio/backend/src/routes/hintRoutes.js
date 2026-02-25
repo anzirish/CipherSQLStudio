@@ -3,4 +3,4 @@ import { generateHint } from "../controller/hintController.js";
 
 export const hintsRouter = express.Router();
 
-queryRouter.post("/generate", generateHint)
+hintsRouter.post("/generate", generateHint);

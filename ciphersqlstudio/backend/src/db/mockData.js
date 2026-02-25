@@ -1,4 +1,3 @@
-import mongoose from 'mongoose';
 import { Assignment } from '../models/Assignment.js';
 
 const sampleAssignments = [
