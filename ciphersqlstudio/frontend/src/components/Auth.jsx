@@ -116,10 +116,6 @@ export const Auth = () => {
         >
           Continue as Guest
         </button>
-
-        <p className="auth-note">
-          Guest mode: Practise SQL without saving progress
-        </p>
       </div>
     </div>
   );

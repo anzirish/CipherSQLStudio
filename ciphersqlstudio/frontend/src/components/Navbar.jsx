@@ -12,7 +12,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar__container">
-        <div className="navbar__brand" onClick={() => navigate('/')}>
+        <div onClick={() => navigate('/')}>
           <span className="navbar__title">CipherSQLStudio</span>
         </div>
 

@@ -61,22 +61,11 @@ input {
     align-items: center;
   }
 
-  &__brand {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    transition: opacity 0.2s;
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-
   &__title {
     font-size: 1.25rem;
     font-weight: 700;
     color: $primary;
+    cursor: pointer;
   }
 
   &__user {
@@ -102,8 +91,6 @@ input {
 
     &:hover { 
       background: $primary-dark;
-      transform: translateY(-1px);
-      box-shadow: 0 2px 4px $shadow;
     }
   }
 }
@@ -176,11 +163,6 @@ input {
     padding: 0.5rem;
     border: 1px solid $border;
     font-size: 0.875rem;
-
-    &:focus {
-      outline: none;
-      border-color: $primary;
-    }
   }
 }
 
@@ -196,12 +178,6 @@ input {
   background: $primary;
   color: white;
   font-weight: 500;
-
-  &:hover:not(:disabled) { opacity: 0.9; }
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
 
   &--guest {
     background: white;
@@ -301,12 +277,6 @@ input {
     background: $warning;
     color: white;
     font-size: 0.875rem;
-
-    &:hover:not(:disabled) { opacity: 0.9; }
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
   }
 
   &__hint {
@@ -335,12 +305,6 @@ input {
     background: $success;
     color: white;
     font-weight: 500;
-
-    &:hover:not(:disabled) { opacity: 0.9; }
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
   }
 
   &__error {
